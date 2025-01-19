@@ -2,7 +2,7 @@
 
 Un generador de arte ASCII moderno y fácil de usar que convierte imágenes y texto en arte ASCII. Construido con JavaScript vanilla y Tailwind CSS, ofrece una interfaz limpia y responsive con un diseño inspirado en aplicaciones SaaS modernas.
 
-![ASCII Art Generator Demo](demo.jpeg)
+![ASCII Art Generator Demo](demo/demo.png)
 
 ## ✨ Características
 
