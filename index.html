@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c3e50',
+                        secondary: '#34495e',
+                        accent: '#3498db'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-primary text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-wider">ASCII ART GENERATOR</div>
+            <a href="https://github.com/686f6c61/ASCII-Art-Generator" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-md hover:bg-white/10 transition-colors">
+                <i class="devicon-github-original"></i>
+                <span>Download</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-1 container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Tabs -->
+            <div class="mb-8 flex justify-center">
+                <div class="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+                    <button id="imageTab" 
+                            class="px-4 py-2 rounded-md text-sm font-medium active-tab"
+                            onclick="switchTab('image')">
+                        Imagen a ASCII
+                    </button>
+                    <button id="textTab" 
+                            class="px-4 py-2 rounded-md text-sm font-medium"
+                            onclick="switchTab('text')">
+                        Texto a ASCII
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image to ASCII Section -->
+            <div id="imageSection" class="space-y-8">
+                <div class="bg-white rounded-xl shadow-sm p-6 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Upload Section -->
+                        <div class="space-y-4">
+                            <label class="block">
+                                <span class="text-gray-700 font-medium">Subir Imagen</span>
+                                <input type="file" 
+                                       id="imageInput" 
+                                       accept="image/*"
+                                       class="mt-1 block w-full text-sm text-gray-500
+                                              file:mr-4 file:py-2 file:px-4
+                                              file:rounded-md file:border-0
+                                              file:text-sm file:font-medium
+                                              file:bg-accent file:text-white
+                                              hover:file:bg-accent/90">
+                            </label>
+                        </div>
+                        
+                        <!-- Controls -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">
+                                    Ancho (caracteres): <span id="widthValue">100</span>
+                                </label>
+                                <input type="range" 
+                                       id="widthRange" 
+                                       min="50" 
+                                       max="300" 
+                                       value="100"
+                                       class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">
+                                    Contraste: <span id="contrastValue">1</span>
+                                </label>
+                                <input type="range" 
+                                       id="contrastRange" 
+                                       min="0.5" 
+                                       max="2" 
+                                       step="0.1" 
+                                       value="1"
+                                       class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+
+                            <div class="flex items-center">
+                                <input type="checkbox" 
+                                       id="invertColors"
+                                       class="h-4 w-4 text-accent rounded border-gray-300">
+                                <label class="ml-2 block text-sm text-gray-700">
+                                    Invertir colores
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text to ASCII Section -->
+            <div id="textSection" class="space-y-8 hidden">
+                <div class="bg-white rounded-xl shadow-sm p-6 space-y-6">
+                    <div class="space-y-4">
+                        <label class="block">
+                            <span class="text-gray-700 font-medium">Tu Texto</span>
+                            <textarea id="textInput"
+                                    rows="3"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring focus:ring-accent/20"
+                                    placeholder="Escribe aquí tu texto..."></textarea>
+                        </label>
+                        <button onclick="convertTextToAscii()"
+                                class="px-4 py-2 bg-accent text-white rounded-md hover:bg-accent/90 transition-colors">
+                            Convertir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Caracteres Soportados -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Caracteres Soportados</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-700 mb-2">Letras</h4>
+                            <p class="text-gray-600 font-mono bg-gray-50 p-2 rounded">
+                                A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-700 mb-2">Números</h4>
+                            <p class="text-gray-600 font-mono bg-gray-50 p-2 rounded">
+                                0 1 2 3 4 5 6 7 8 9
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-700 mb-2">Símbolos</h4>
+                            <p class="text-gray-600 font-mono bg-gray-50 p-2 rounded">
+                                ¿ ? ( ) / \ & % $ · # " ! ¡ ' = @ . ,
+                            </p>
+                        </div>
+                        <div class="text-sm text-gray-500 mt-4">
+                            <p>* Cada carácter será convertido en un patrón ASCII art de 5x5.</p>
+                            <p>* Los caracteres no soportados se convertirán en espacios.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Controls -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mt-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block">
+                            <span class="text-gray-700 font-medium text-base">Conjunto de caracteres</span>
+                            <select id="charSet"
+                                    class="mt-2 block w-full px-3 py-2 text-base rounded-md border-gray-300 shadow-sm 
+                                           focus:border-accent focus:ring focus:ring-accent/20
+                                           bg-white">
+                                <option value="standard">Estándar (@#B8&o:*.)</option>
+                                <option value="simple">Simple (#. )</option>
+                                <option value="detailed">Detallado (70+ caracteres)</option>
+                                <option value="blocks">Bloques Unicode</option>
+                                <option value="minimal">Minimal Blocks</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="flex items-end">
+                        <button id="downloadBtn"
+                                class="w-full px-4 py-2 bg-accent text-white text-base rounded-md hover:bg-accent/90 
+                                       transition-colors font-medium">
+                            Descargar ASCII Art
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output -->
+            <div class="mt-8 bg-white rounded-xl shadow-sm p-6">
+                <pre id="ascii-output" class="font-mono text-xs overflow-x-auto whitespace-pre"></pre>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex justify-between items-center flex-wrap gap-4">
+                <div class="flex gap-4">
+                    <i class="devicon-html5-plain text-xl" title="HTML5"></i>
+                    <i class="devicon-css3-plain text-xl" title="CSS3"></i>
+                    <i class="devicon-javascript-plain text-xl" title="JavaScript"></i>
+                    <i class="devicon-tailwindcss-plain text-xl" title="Tailwind CSS"></i>
+                </div>
+                <div class="text-gray-600 text-sm">
+                    2025 ASCII Art Generator
+                </div>
+                <div>
+                    <a href="https://github.com/686f6c61" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="text-gray-600 hover:text-accent transition-colors">
+                        <i class="devicon-github-original text-xl" title="GitHub"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
