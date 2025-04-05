@@ -1,7 +1,10 @@
 /**
  * ASCII Art Generator - Administrador de Descargas
  * 
- * Gestiona las descargas y copias al portapapeles.
+ * Permite exportar y compartir el arte ASCII generado en distintos formatos.
+ * Proporciona funcionalidades para descargar como archivo de texto (TXT),
+ * guardar como imagen (PNG) y copiar al portapapeles, optimizando
+ * la preservación del formato y la estructura visual de los resultados.
  * 
  * @version 2.1.0
  * @license MIT

@@ -1,7 +1,10 @@
 /**
  * ASCII Art Generator - Administrador de Dibujo
  * 
- * Funcionalidad para dibujar en canvas y convertir a ASCII.
+ * Proporciona funcionalidad completa para crear arte ASCII a partir de dibujos.
+ * Implementa un sistema interactivo de dibujo en canvas con soporte para
+ * dispositivos táctiles, historial de trazos, deshacer acciones y
+ * conversión del dibujo resultante a representaciones ASCII personalizables.
  * 
  * @version 2.1.0
  * @license MIT

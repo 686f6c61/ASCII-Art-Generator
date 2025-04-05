@@ -1,7 +1,10 @@
 /**
  * ASCII Art Generator - Administrador de Historial
  * 
- * Gestiona el almacenamiento y recuperación del historial de conversiones.
+ * Sistema de persistencia para guardar y recuperar conversiones anteriores.
+ * Implementa funcionalidades para almacenar, mostrar y restaurar el historial
+ * de arte ASCII generado, permitiendo a los usuarios recuperar trabajos previos
+ * con todas sus configuraciones y parámetros originales.
  * 
  * @version 2.1.0
  * @license MIT

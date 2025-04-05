@@ -2,6 +2,8 @@
  * ASCII Art Generator - Archivo Principal
  * 
  * Coordina la inicialización y funcionamiento de la aplicación.
+ * Gestiona el ciclo de vida completo de la aplicación, desde la carga
+ * inicial hasta la interacción con todas las funcionalidades.
  * 
  * @version 2.1.0
  * @license MIT

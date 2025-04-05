@@ -62,16 +62,10 @@ Un potente generador de arte ASCII modular y completo que convierte imágenes, t
 - **Restaura** conversiones anteriores con un clic
 - **Gestión** completa del historial
 
-### 📤 Compartir y Descargar
+### 📤 Exportación y Descarga
 - **Copia** con un clic al portapapeles
 - **Descarga** como archivo de texto (.txt)
 - **Descarga** como imagen (.png) - ¡NUEVO!
-- **Comparte** en múltiples plataformas - ¡NUEVO!:
-  - Twitter/X
-  - Facebook
-  - WhatsApp
-  - Telegram
-  - Email
 
 ## 🚀 Cómo Usar
 

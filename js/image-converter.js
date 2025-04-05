@@ -1,7 +1,10 @@
 /**
  * ASCII Art Generator - Convertidor de Imágenes
  * 
- * Funcionalidad para convertir imágenes a arte ASCII.
+ * Implementa algoritmos avanzados para transformar imágenes en representaciones ASCII.
+ * Procesa datos de píxeles para mapearlos a caracteres con diferentes niveles de densidad
+ * visual, permitiendo ajustes de contraste, brillo y otros parámetros para optimizar
+ * la conversión de imágenes a arte ASCII.
  * 
  * @version 2.1.0
  * @license MIT

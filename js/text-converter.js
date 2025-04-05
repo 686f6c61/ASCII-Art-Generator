@@ -1,7 +1,10 @@
 /**
  * ASCII Art Generator - Convertidor de Texto
  * 
- * Funcionalidad para convertir texto a ASCII Art
+ * Proporciona la funcionalidad principal para transformar texto en arte ASCII
+ * utilizando diferentes estilos de fuentes y conjuntos de caracteres.
+ * Soporta múltiples tamaños y formatos, con capacidad para procesar
+ * texto en diferentes idiomas incluyendo caracteres especiales.
  * 
  * @version 2.1.0
  * @license MIT

@@ -1,7 +1,9 @@
 /**
  * ASCII Art Generator - Administrador de UI
  * 
- * Controla las interacciones de UI y gestión de temas.
+ * Gestiona la interfaz de usuario y la experiencia interactiva de la aplicación.
+ * Controla la visualización de resultados, cambios de tema, navegación entre
+ * pestanas y la presentación del arte ASCII generado con el formato adecuado.
  * 
  * @version 2.1.0
  * @license MIT
